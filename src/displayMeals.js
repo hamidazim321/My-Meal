@@ -5,7 +5,10 @@ const MEAL_TEMPLATE = `
   <img src="" alt="dish">
 </div>
 <div class="meal-body">
-  <p class="meal-name"></p>
+  <div class ="meal-description">
+    <p class="meal-name"></p>
+    <i class="fa-regular fa-heart"></i>
+  </div>
   <span class="like-count"></span>
   <button class="meal-comment">Comments</button>
   <button class="meal-reservation">Reservations</button>
@@ -19,9 +22,11 @@ const displayMeal = async ()=> {
     card.innerHTML = MEAL_TEMPLATE
     const thumbnail = card.querySelector('.meal-thumbnail img')
     const dish = card.querySelector('.meal-name')
+    const likes = card.querySelector('.like-count')
 
     dish.textContent = meal.strMeal
     thumbnail.src = meal.strMealThumb
+    likes.textContent = 'X Likes'
 
     card.classList.add('meal-card')
     card.id = meal.idMeal
