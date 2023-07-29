@@ -9,7 +9,6 @@ body {
 
 #Navbar {
   display: flex;
-  position: fixed;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -33,4 +32,40 @@ body {
   justify-content: center;
   font-size: 1.7vw;
   margin: 0;
+}
+
+#meals {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5%;
+  justify-content: space-evenly;
+}
+
+.meal-card {
+  width: 30%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.meal-thumbnail, 
+.meal-thumbnail img {
+  width: 100%;
+}
+
+.meal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.meal-name {
+  margin: 0;
+}
+
+.like-count {
+  margin-left: auto;
 }
