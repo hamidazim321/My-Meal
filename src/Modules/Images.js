@@ -1,6 +1,6 @@
-import logo from '../assets/brand-logo.jpg'
+import logo from '../assets/brand-logo.png'
 const Navbar = () => {
-  const img = document.querySelector('#logo img')
+  const img = document.querySelector('#logo')
   img.src = logo
 }
 
