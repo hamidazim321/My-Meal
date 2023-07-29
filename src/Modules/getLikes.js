@@ -7,15 +7,34 @@ const postLikes = async (id)=> {
       "content-type": "application/json"
     },
     body: JSON.stringify({
-      item_Id: id
+      item_id: id
     })
   })
 }
 
 const getLikes = async ()=> {
-  const request = await fetch(`${APP_URL}/likes`)
-  const data = await request.json()
-  return data
+  try {
+    const request = await fetch(`${APP_URL}/likes`)
+    const data = await request.json()
+    console.log(data)
+    return data
+  }
+  catch (e) {
+    console.error(e)
+  }
 }
 
-export {postLikes, getLikes}
+const displayLikes = async ()=> {
+  const cards = document.querySelectorAll('.meal-card')
+  const likes = await getLikes()
+
+  likes.forEach(like => {
+    const card = document.getElementById(like.item_id)
+    const likeCount = card.querySelector('.like-count')
+    likeCount.textContent = like.likes
+
+    
+  })
+}
+
+export {postLikes, getLikes, displayLikes}

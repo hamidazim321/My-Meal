@@ -1,4 +1,4 @@
-import { getLikes, postLikes } from "./getLikes"
+import { displayLikes, getLikes, postLikes } from "./getLikes"
 import getMealList from "./getMeals"
 
 const MEAL_TEMPLATE = `
@@ -16,9 +16,13 @@ const MEAL_TEMPLATE = `
 </div>`
 
 const handleLikeEvent = async(id) => {
-  await postLikes(id)
-  const likes = await getLikes()
-  console.log(likes)
+  try {
+    await postLikes(id)
+    // await getLikes()
+  }
+  catch (e) {
+    console.error(e)
+  }
 }
 
 const displayMeal = async ()=> {
@@ -34,10 +38,10 @@ const displayMeal = async ()=> {
 
     dish.textContent = meal.strMeal
     thumbnail.src = meal.strMealThumb
-    likes.textContent = 'X Likes'
+    likes.textContent = '0 Likes'
 
     likeButton.addEventListener('click', ()=> {
-      handleLikeEvent()
+      handleLikeEvent(card.id)
     })
 
     card.classList.add('meal-card')
@@ -46,6 +50,7 @@ const displayMeal = async ()=> {
     Container.appendChild(card)
   })
   console.log(meals)
+  await displayLikes()
 }
 
 export default displayMeal
