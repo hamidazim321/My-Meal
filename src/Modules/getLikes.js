@@ -25,16 +25,27 @@ const getLikes = async ()=> {
 }
 
 const displayLikes = async ()=> {
-  const cards = document.querySelectorAll('.meal-card')
   const likes = await getLikes()
 
   likes.forEach(like => {
     const card = document.getElementById(like.item_id)
     const likeCount = card.querySelector('.like-count')
-    likeCount.textContent = like.likes
-
-    
+    likeCount.textContent = `${like.likes} likes`
   })
 }
 
-export {postLikes, getLikes, displayLikes}
+const updateLike = async (id)=> {
+  const likes = await getLikes()
+  const newLike = likes.find(obj => obj.item_id === id)
+  const card = document.getElementById(id)
+  const likeCount = card.querySelector('.like-count')
+  likeCount.textContent = `${newLike.likes} likes`
+}
+
+const updateLikeColor = (id) => {
+  const card = document.getElementById(id)
+  const likeButton = card.querySelector(`.likeButton`)
+  likeButton.style.color = 'red' 
+}
+
+export {postLikes, getLikes, displayLikes, updateLike, updateLikeColor}
