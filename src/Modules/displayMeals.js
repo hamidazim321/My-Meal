@@ -15,7 +15,6 @@ const MEAL_TEMPLATE = `
   </div>
   <span class="like-count"></span>
   <button class="meal-comment">Comments</button>
-  <button class="meal-reservation">Reservations</button>
 </div>`
 
 const handleLikeEvent = async(id) => {

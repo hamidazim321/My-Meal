@@ -12,8 +12,6 @@ const postComment = async (id, username,comment) => {
         comment: comment
     })
   })
-  const reponse = await request.json()
-  console.log(reponse)
 }
 
 const getComments = async (id) => {

@@ -64,7 +64,6 @@ const populatPopup = async (id, popUp, purpose) => {
   mealIngredients.textContent = `Ingredients: ${strIngredient1}, ${strIngredient2}, ${strIngredient3}`
   mealRecipe.href = strYoutube
   mealRecipe.target = '_blank'
-  console.log(itemDetails)
 
   // Conditional for purpose, comments or reservation
   if (purpose === "Comments") {
@@ -111,7 +110,7 @@ const createCommentForm = (id)=> {
   form.appendChild(comment)
   form.appendChild(submit)
 
-  submit.addEventListener('click', ()=>handleCommentPost(form))
+  submit.addEventListener('click', async ()=>handleCommentPost(form))
 
   return form
 }
@@ -122,8 +121,7 @@ const handleCommentPost = async (form) => {
 
   if (inputName !== "" && comment !== ""){
     await postComment(form.id, inputName, comment)
-    await updateCommentSection()
-    console.log('dhsgfsg')
+    await updateCommentSection(form.id)
   }
   else {
     const submit = form.querySelector('.form-submit')
@@ -135,15 +133,15 @@ const handleCommentPost = async (form) => {
 
 }
 
-const updateCommentSection = async () => {
-  console.log('updating')
-  const comments = await getComments()
-  const commentsSection = document.querySelector('.popup-responses')
+const updateCommentSection = async (id) => {
+  const comments = await getComments(id)
+  const commentsSection = document.querySelector('#popup-responses')
+  const header = commentsSection.querySelector('.header h2')
   const newComment = document.createElement('p')
   const {comment, creation_date, username} = comments[comments.length-1]
   newComment.textContent = `${creation_date} ${username}: ${comment}`
   commentsSection.appendChild(newComment)
-  console.log(newComment)
+  header.textContent = `Comments (${comments.length})`
 }
 
 const populaeCommentsSection = async(id) => {

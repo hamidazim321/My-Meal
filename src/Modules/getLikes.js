@@ -18,19 +18,21 @@ const getLikes = async ()=> {
     const data = await request.json()
     return data
   }
-  catch (e) {
-    console.error(e)
+  catch {
+    return null 
+   
   }
 }
 
 const displayLikes = async ()=> {
   const likes = await getLikes()
-
-  likes.forEach(like => {
-    const card = document.getElementById(like.item_id)
-    const likeCount = card.querySelector('.like-count')
-    likeCount.textContent = `${like.likes} likes`
-  })
+  if (likes !== null) {
+    likes.forEach(like => {
+      const card = document.getElementById(like.item_id)
+      const likeCount = card.querySelector('.like-count')
+      likeCount.textContent = `${like.likes} likes`
+    })
+  }
 }
 
 const updateLike = async (id)=> {
