@@ -138,6 +138,8 @@ body {
 
 #popup-desc div {
   display: flex;
+  align-items: center;
+  gap: 2%;
 }
 
 #popup-responses {
@@ -149,6 +151,24 @@ body {
   margin: 0 auto;
   display: flex;
   justify-content: center;
+}
+
+#popup-add-response {
+  width: 100%;
+  padding: 0 20%;
+}
+
+.popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 50%;
+}
+
+.form-submit {
+  width: fit-content;
+  font: large;
+  font-weight: 600;
 }
 
 

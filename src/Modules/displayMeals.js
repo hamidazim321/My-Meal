@@ -1,6 +1,8 @@
+import { getComments, postComment } from "./comments"
 import mealCounter from "./counter"
 import { displayLikes, postLikes, updateLike, updateLikeColor } from "./getLikes"
 import getMealList from "./getMeals"
+import { displayPopup } from "./popUps"
 
 const MEAL_TEMPLATE = `
 <div class="meal-thumbnail">
@@ -50,6 +52,15 @@ const displayMeal = async ()=> {
     card.id = meal.idMeal
 
     Container.appendChild(card)
+
+     //TEMPP
+     const commentButton = card.querySelector('.meal-comment')
+     commentButton.addEventListener('click', async() => {
+      // getComments(card.id)
+      displayPopup(card.id)
+ 
+     })
+     //TEMPP
   })
   await displayLikes()
   await mealCounter(meals)
