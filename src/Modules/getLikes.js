@@ -16,7 +16,6 @@ const getLikes = async ()=> {
   try {
     const request = await fetch(`${APP_URL}/likes`)
     const data = await request.json()
-    console.log(data)
     return data
   }
   catch (e) {
