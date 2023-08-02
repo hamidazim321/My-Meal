@@ -3,6 +3,10 @@
   font-family: sans-serif;
 }
 
+button, i {
+  cursor: pointer;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -46,6 +50,7 @@ body {
   flex-wrap: wrap;
   padding: 5%;
   justify-content: space-between;
+  background-color: burlywood;
 }
 
 .meal-card {
@@ -55,11 +60,16 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border: solid;
+  border-radius: 20%;
+  padding: 2%;
+  background-color: bisque;
 }
 
 .meal-thumbnail, 
 .meal-thumbnail img {
   width: 100%;
+  border-radius: 20%;
 }
 
 .meal-body {
@@ -84,10 +94,20 @@ body {
 
 .meal-name {
   margin: 0;
+  font-size: large;
+  font-weight: 600;
 }
 
 .like-count {
   margin-left: auto;
+}
+
+.meal-comment {
+  border: solid;
+  padding: 10px;
+  font-size: large;
+  background-color: burlywood;
+  font-weight: 600;
 }
 
 #popup {
@@ -169,6 +189,62 @@ body {
   width: fit-content;
   font: large;
   font-weight: 600;
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  #meals {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .meal-card {
+    border: solid;
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 0%;
+  }
+  
+  .meal-thumbnail, 
+  .meal-thumbnail img {
+    width: 100%;
+    border-radius: 0%;
+  }
+  
+  .meal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .meal-description {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .likeButton {
+    margin-right: 10px;
+  }
+  
+  .meal-name {
+    margin: 0;
+    font-size: small;
+  }
+  
+  .like-count {
+    margin-left: auto;
+  }
+  
 }
 
 

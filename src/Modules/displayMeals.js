@@ -1,4 +1,3 @@
-import { getComments, postComment } from "./comments"
 import mealCounter from "./counter"
 import { displayLikes, postLikes, updateLike, updateLikeColor } from "./getLikes"
 import getMealList from "./getMeals"
@@ -52,14 +51,11 @@ const displayMeal = async ()=> {
 
     Container.appendChild(card)
 
-     //TEMPP
      const commentButton = card.querySelector('.meal-comment')
      commentButton.addEventListener('click', async() => {
-      // getComments(card.id)
       displayPopup(card.id)
  
      })
-     //TEMPP
   })
   await displayLikes()
   await mealCounter(meals)
