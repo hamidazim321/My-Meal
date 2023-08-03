@@ -124,6 +124,17 @@ body {
   font-weight: 600;
 }
 
+#overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgb(104, 97, 97);
+  z-index: 1;
+  opacity: 60%;
+}
+
 #popup {
   overflow-y: auto;
   position: fixed;
@@ -136,6 +147,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  z-index: 2;
 }
 
 #popup-header {

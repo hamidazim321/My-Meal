@@ -34,6 +34,17 @@ const POPUP_TEMPLATE = `
       </div>
     </div>
   `
+
+const createOverlay = () => {
+  const overlay = document.createElement('div')
+  overlay.id = 'overlay'
+  document.body.appendChild(overlay)
+}
+
+const removeOverlay = () => {
+  const overlay = document.getElementById('overlay')
+  document.body.removeChild(overlay)
+}
 const createPopUp = () => {
   const popUp = document.createElement('div')
   popUp.id = 'popup'
@@ -48,7 +59,7 @@ const getItemDetails = async (id) => {
   return data
 }
 
-const populatPopup = async (id, popUp, purpose) => {
+const populatePopup = async (id, popUp) => {
   const itemDetails = await getItemDetails(id)
   const thumbnail = popUp.querySelector('#popup-thumb')
   const mealName = popUp.querySelector('#popup-name')
@@ -56,7 +67,14 @@ const populatPopup = async (id, popUp, purpose) => {
   const mealCategory = popUp.querySelector('#category p')
   const mealIngredients = popUp.querySelector('#ingredients p')
   const mealRecipe = popUp.querySelector('#recipe a')
+  const addComments = popUp.querySelector('#popup-add-response')
+  const header2 = addComments.querySelector('.header h2')
+  const form = createCommentForm(id)
+  const comments = await populaeCommentsSection(id)
+  const commentArea = popUp.querySelector('#popup-responses')
+  const header1 = commentArea.querySelector('.header h2')
   const {strIngredient1, strIngredient2, strIngredient3, strMealThumb, strMeal, strArea, strCategory, strYoutube} = itemDetails
+
   thumbnail.src = strMealThumb
   mealName.textContent = strMeal
   mealArea.textContent = `Origin: ${strArea}`
@@ -65,27 +83,15 @@ const populatPopup = async (id, popUp, purpose) => {
   mealRecipe.href = strYoutube
   mealRecipe.target = '_blank'
 
-  // Conditional for purpose, comments or reservation
-  if (purpose === "Comments") {
-    const comments = await populaeCommentsSection(id)
-    const commentArea = popUp.querySelector('#popup-responses')
-    const header1 = commentArea.querySelector('.header h2')
-    if (comments){
-      header1.textContent = `Comments (${comments.length})`
-      comments.forEach(comment => commentArea.appendChild(comment))
-    }
-    else {
-      header1.textContent = `Comments (0)`
-    }
-    const addComments = popUp.querySelector('#popup-add-response')
-    const header2 = addComments.querySelector('.header h2')
-    const form = createCommentForm(id)
-    addComments.appendChild(form)
-    header2.textContent = 'Add a comment'
+  if (comments){
+    header1.textContent = `Comments (${comments.length})`
+    comments.forEach(comment => commentArea.appendChild(comment))
   }
   else {
-    // Make the code for the reservation section here
+    header1.textContent = `Comments (0)`
   }
+  addComments.appendChild(form)
+  header2.textContent = 'Add a comment'
 }
 
 const createCommentForm = (id)=> {
@@ -162,15 +168,17 @@ const populaeCommentsSection = async(id) => {
 }
 
 const closePopup = () => {
+  removeOverlay()
   const popUp = document.querySelector('#popup')
   document.body.removeChild(popUp)
 }
 
 const displayPopup = async (id) => {
   const popUp = createPopUp()
-  await populatPopup(id, popUp, 'Comments')
+  await populatePopup(id, popUp)
   const closePopUp = popUp.querySelector('#popup-close')
   closePopUp.addEventListener('click', closePopup)
+  createOverlay()
   document.body.appendChild(popUp)
 }
 
