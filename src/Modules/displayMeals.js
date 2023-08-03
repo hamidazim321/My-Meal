@@ -1,6 +1,7 @@
 import mealCounter from "./counter"
 import { displayLikes, postLikes, updateLike, updateLikeColor } from "./getLikes"
 import getMealList from "./getMeals"
+import { highlightMyLikes, saveMyLikes, getMyLikes } from "./localStorage"
 import { displayPopup } from "./popUps"
 
 const MEAL_TEMPLATE = `
@@ -18,9 +19,13 @@ const MEAL_TEMPLATE = `
 
 const handleLikeEvent = async(id) => {
   try {
-    await updateLikeColor(id)
-    await postLikes(id)
-    await updateLike(id)
+    const myLikes = getMyLikes()
+    if (!(myLikes.find(obj => obj.id === id))){
+      saveMyLikes(id)
+      await updateLikeColor(id)
+      await postLikes(id)
+      await updateLike(id)
+    } 
   }
   catch (e) {
     console.error(e)
@@ -59,6 +64,7 @@ const displayMeal = async ()=> {
   })
   await displayLikes()
   await mealCounter(meals)
+  highlightMyLikes()
 }
 
 export default displayMeal
