@@ -3,6 +3,10 @@
   font-family: sans-serif;
 }
 
+button, i {
+  cursor: pointer;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -13,15 +17,27 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 2% 5% 0 5%;
+  padding: 1% 5% 1% 5%;
+  background-color: rgb(180, 128, 61);
 }
 
 #brand {
   padding: 0;
+  display: flex;
+  align-items: center;
+  width: 100%
 }
 
 #logo {
-  width: 80px;
+  font-size: 40px;
+  color: silver;
+  margin-right: 2%;
+}
+
+#brand-name {
+  font-size: 24px;
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #nav-list {
@@ -39,6 +55,8 @@ body {
   text-decoration: none;
   cursor: pointer;
   color: black;
+  font-weight: 600;
+  font-size: 24px;
 }
 
 #meals {
@@ -46,6 +64,7 @@ body {
   flex-wrap: wrap;
   padding: 5%;
   justify-content: space-between;
+  background-color: burlywood;
 }
 
 .meal-card {
@@ -55,11 +74,16 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border: solid;
+  border-radius: 20%;
+  padding: 2%;
+  background-color: bisque;
 }
 
 .meal-thumbnail, 
 .meal-thumbnail img {
   width: 100%;
+  border-radius: 20%;
 }
 
 .meal-body {
@@ -67,6 +91,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 7px;
+  height: 100%;
 }
 
 .likeButton {
@@ -84,10 +109,32 @@ body {
 
 .meal-name {
   margin: 0;
+  font-size: large;
+  font-weight: 600;
 }
 
 .like-count {
   margin-left: auto;
+}
+
+.meal-comment {
+  border: solid;
+  padding: 10px;
+  font-size: large;
+  background-color: burlywood;
+  font-weight: 600;
+  margin-top: auto;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgb(104, 97, 97);
+  z-index: 1;
+  opacity: 60%;
 }
 
 #popup {
@@ -102,6 +149,8 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  z-index: 2;
+  border: solid burlywood 2px;
 }
 
 #popup-header {
@@ -169,6 +218,211 @@ body {
   width: fit-content;
   font: large;
   font-weight: 600;
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  #Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1% 5% 1% 5%;
+    background-color: rgb(180, 128, 61);
+  }
+  
+  #brand {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    width: 60%;
+  }
+  
+  #logo {
+    font-size: 24px;
+    color: silver;
+    margin-right: 2%;
+  }
+  
+  #brand-name {
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  #nav-list {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    font-weight: 600;
+    font-size: 12px;
+  }  
+
+  #meals {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px 0 0 0;
+  }
+  
+  .meal-card {
+    border: solid;
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 0%;
+  }
+  
+  .meal-thumbnail, 
+  .meal-thumbnail img {
+    width: 100%;
+    border-radius: 0%;
+  }
+  
+  .meal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+  }
+  
+  .meal-description {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .likeButton {
+    margin-right: 10px;
+  }
+  
+  .meal-name {
+    margin: 0;
+    font-size: small;
+  }
+  
+  .like-count {
+    margin-left: auto;
+  }
+
+  .meal-comment {
+    border: solid;
+    padding: 10px;
+    font-size: large;
+    background-color: burlywood;
+    font-weight: 600;
+    margin-top: auto;
+  }
+
+  #popup {
+    overflow-y: auto;
+    position: fixed;
+    background-color: blanchedalmond;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    z-index: 2;
+  }
+  
+  #popup-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: larger;
+    font-weight: 600;
+  }
+  
+  #popup-thumbnail {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #popup-close {
+    font-size: xx-large;
+  }
+  
+  #popup-thumb {
+    width: 40%;
+    margin: 0 auto;
+  }
+  
+  #popup-desc {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 5px;
+    width: 100%;
+    padding: 0 5%;
+  }
+  
+  #popup-desc div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+  }
+
+  #popup-desc div p {
+    margin: 0 0 5px 0;
+  }
+  
+  #popup-responses {
+    width: 100%;
+    padding: 0 5%;
+  }
+  
+  .header {
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+
+  }
+  
+  #popup-add-response {
+    width: 100%;
+    padding: 0 5%;
+  }
+  
+  .popup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .form-submit {
+    width: fit-content;
+    font: large;
+    font-weight: 600;
+    background-color: burlywood;
+    padding: 5px;
+  }
+  
+  
 }
 
 
