@@ -91,6 +91,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 7px;
+  height: 100%;
 }
 
 .likeButton {
@@ -122,6 +123,7 @@ body {
   font-size: large;
   background-color: burlywood;
   font-weight: 600;
+  margin-top: auto;
 }
 
 #overlay {
@@ -148,6 +150,7 @@ body {
   align-items: center;
   padding: 20px;
   z-index: 2;
+  border: solid burlywood 2px;
 }
 
 #popup-header {
@@ -231,7 +234,7 @@ body {
     padding: 0;
     display: flex;
     align-items: center;
-    width: 80%
+    width: 60%;
   }
   
   #logo {
@@ -269,7 +272,7 @@ body {
     grid-template-columns: auto auto;
     gap: 10px;
     justify-content: center;
-    padding: 0;
+    padding: 10px 0 0 0;
   }
   
   .meal-card {
@@ -294,6 +297,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 4px;
+    height: 100%;
   }
   
   .meal-description {
@@ -316,6 +320,108 @@ body {
   .like-count {
     margin-left: auto;
   }
+
+  .meal-comment {
+    border: solid;
+    padding: 10px;
+    font-size: large;
+    background-color: burlywood;
+    font-weight: 600;
+    margin-top: auto;
+  }
+
+  #popup {
+    overflow-y: auto;
+    position: fixed;
+    background-color: blanchedalmond;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    z-index: 2;
+  }
+  
+  #popup-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: larger;
+    font-weight: 600;
+  }
+  
+  #popup-thumbnail {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #popup-close {
+    font-size: xx-large;
+  }
+  
+  #popup-thumb {
+    width: 40%;
+    margin: 0 auto;
+  }
+  
+  #popup-desc {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 5px;
+    width: 100%;
+    padding: 0 5%;
+  }
+  
+  #popup-desc div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+  }
+
+  #popup-desc div p {
+    margin: 0 0 5px 0;
+  }
+  
+  #popup-responses {
+    width: 100%;
+    padding: 0 5%;
+  }
+  
+  .header {
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+
+  }
+  
+  #popup-add-response {
+    width: 100%;
+    padding: 0 5%;
+  }
+  
+  .popup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .form-submit {
+    width: fit-content;
+    font: large;
+    font-weight: 600;
+    background-color: burlywood;
+    padding: 5px;
+  }
+  
   
 }
 

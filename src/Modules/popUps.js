@@ -1,38 +1,38 @@
 import { getComments, postComment } from "./comments"
 
 const POPUP_TEMPLATE = `
-<div id="popup-header">
+  <div id="popup-header">
     <div id="popup-thumbnail">
       <img src="" id="popup-thumb">
       <i class="fa-solid fa-xmark" id="popup-close"></i>
     </div>
     <p id="popup-name"></p>
+  </div>
+  <div id="popup-desc">
+    <div id="area">
+    <p></p>
     </div>
-    <div id="popup-desc">
-      <div id="area">
+    <div id="category">
       <p></p>
-      </div>
-      <div id="category">
-        <p></p>
-      </div>
-      <div id="ingredients">
-        <p></p>
-      </div>
-      <div id="recipe">
-        <p>Recipe Toturial:</p>
-        <a href="">Youtube</a>
-      </div>
     </div>
-    <div id="popup-responses">
-      <div class="header">
-        <h2></h2>
-      </div>
+    <div id="ingredients">
+      <p></p>
     </div>
-    <div id="popup-add-response">
-      <div class="header">
-        <h2></h2>
-      </div>
+    <div id="recipe">
+      <p><b>Recipe Toturial:</b></p>
+      <a href="">Youtube</a>
     </div>
+  </div>
+  <div id="popup-responses">
+    <div class="header">
+      <h2></h2>
+    </div>
+  </div>
+  <div id="popup-add-response">
+    <div class="header">
+      <h2></h2>
+    </div>
+  </div>
   `
 
 const createOverlay = () => {
@@ -70,16 +70,16 @@ const populatePopup = async (id, popUp) => {
   const addComments = popUp.querySelector('#popup-add-response')
   const header2 = addComments.querySelector('.header h2')
   const form = createCommentForm(id)
-  const comments = await populaeCommentsSection(id)
+  const comments = await populateCommentsSection(id)
   const commentArea = popUp.querySelector('#popup-responses')
   const header1 = commentArea.querySelector('.header h2')
   const {strIngredient1, strIngredient2, strIngredient3, strMealThumb, strMeal, strArea, strCategory, strYoutube} = itemDetails
 
   thumbnail.src = strMealThumb
   mealName.textContent = strMeal
-  mealArea.textContent = `Origin: ${strArea}`
-  mealCategory.textContent = `Category: ${strCategory}`
-  mealIngredients.textContent = `Ingredients: ${strIngredient1}, ${strIngredient2}, ${strIngredient3}`
+  mealArea.innerHTML = `<b>Origin:</b>${strArea}`
+  mealCategory.innerHTML = `<b>Category:</b> ${strCategory}`
+  mealIngredients.innerHTML = `<b>Ingredients:</b> ${strIngredient1}, ${strIngredient2}, ${strIngredient3}`
   mealRecipe.href = strYoutube
   mealRecipe.target = '_blank'
 
@@ -150,14 +150,14 @@ const updateCommentSection = async (id) => {
   header.textContent = `Comments (${comments.length})`
 }
 
-const populaeCommentsSection = async(id) => {
+const populateCommentsSection = async(id) => {
   const comments = await getComments(id)
   if (Array.isArray(comments)){
     const returnElements = []
     comments.forEach(data => {
       const {comment, creation_date, username} = data
       const p = document.createElement('p')
-      p.textContent = `${creation_date} ${username}: ${comment}`
+      p.innerHTML = `<b>${creation_date} ${username}</b>: ${comment}`
       returnElements.push(p)
     })
     return returnElements
