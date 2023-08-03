@@ -3,6 +3,6 @@ import './style.css'
 import Navbar from './Modules/Images'
 import displayMeal from './Modules/displayMeals'
 
-Navbar()
+// Navbar()
 displayMeal()
 

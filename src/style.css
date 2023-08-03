@@ -17,15 +17,27 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 2% 5% 0 5%;
+  padding: 1% 5% 1% 5%;
+  background-color: rgb(180, 128, 61);
 }
 
 #brand {
   padding: 0;
+  display: flex;
+  align-items: center;
+  width: 100%
 }
 
 #logo {
-  width: 80px;
+  font-size: 40px;
+  color: silver;
+  margin-right: 2%;
+}
+
+#brand-name {
+  font-size: 24px;
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #nav-list {
@@ -43,6 +55,8 @@ body {
   text-decoration: none;
   cursor: pointer;
   color: black;
+  font-weight: 600;
+  font-size: 24px;
 }
 
 #meals {
@@ -192,6 +206,52 @@ body {
 }
 
 @media screen and (min-width: 300px) and (max-width: 600px) {
+  #Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1% 5% 1% 5%;
+    background-color: rgb(180, 128, 61);
+  }
+  
+  #brand {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    width: 80%
+  }
+  
+  #logo {
+    font-size: 24px;
+    color: silver;
+    margin-right: 2%;
+  }
+  
+  #brand-name {
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  #nav-list {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    font-weight: 600;
+    font-size: 12px;
+  }  
+
   #meals {
     display: grid;
     grid-template-columns: auto auto;
