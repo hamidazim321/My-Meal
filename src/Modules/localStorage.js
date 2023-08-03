@@ -10,7 +10,6 @@ const saveMyLikes = (id) => {
   }
   likes.push(newLike)
   localStorage.setItem('myLikes', JSON.stringify(likes))
-  console.log(likes)
 }
 
 const highlightMyLikes = () => {
