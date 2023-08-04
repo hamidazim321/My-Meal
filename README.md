@@ -92,8 +92,8 @@ Clone this repository to your desired folder:
 
 Example commands:
 
-  cd my-folder
-  git clone git@github.com:hamidazim321/My-Meal.git
+  ```cd my-folder```,
+  ```git clone git@github.com:hamidazim321/My-Meal.git```
 
 
 
@@ -101,14 +101,13 @@ Example commands:
 
 Install the project dependencies before running with:
 
-  cd my-project
-  npm install
+ ```npm install```
 
 
 ### Usage
 
 To run the project:
-  npm start
+  ```npm start```
 
 ### Deployment
 
