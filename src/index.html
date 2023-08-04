@@ -14,7 +14,28 @@
     </div>
     <ul id="nav-list">
       <li class="nav"><a href="#" id="nav-dishes">Dishes</a></li>
-      <li class="nav"><a href="#">About</a></li>
+      <li class="nav">
+        <select name="filter" id="filter">
+          <option value="" disabled selected hidden="true">filter</option>
+          <optgroup id="a" label="By Countries">
+            <option value="Canadian">Canadian</option>
+            <option value="American">American</option>
+            <option value="Indian">Indian</option>
+            <option value="British">British</option>
+          </optgroup>
+          <optgroup id="i" label="By Ingredients">
+            <option value="Beef">Beef</option>
+            <option value="chicken_breast">chicken Breast</option>
+            <option value="Potatoes">Potatoes</option>
+          </optgroup>
+          <optgroup id="c" label="By Categories">
+            <option value="Dessert">Dessert</option>
+            <option value="Miscellaneous">Miscellaneous</option>
+            <option value="Seafood">Seafood</option>
+            <option value="Breakfast">Breakfast</option>
+          </optgroup>
+        </select>
+      </li>
       <li class="nav"><a href="#">Contacts</a></li>
     </ul>
   </nav>
