@@ -405,11 +405,9 @@ optgroup {
   }
   
   #popup-desc div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
-    gap: 0;
+    gap: 5px;
     width: 100%;
   }
 
@@ -448,6 +446,7 @@ optgroup {
     background-color: burlywood;
     padding: 5px;
   }
+  
   
   
 }
