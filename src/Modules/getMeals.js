@@ -1,7 +1,7 @@
-import { MEAL_DB_URL } from "./API-Data";
+import { mealDBURL } from "./API-Data"
 
-const getMealList = async () => {
-  const request = await fetch(MEAL_DB_URL)
+const getMealList = async (filter, option) => {
+  const request = await fetch(mealDBURL(filter, option))
   const {meals} = await request.json()
   return meals
 }

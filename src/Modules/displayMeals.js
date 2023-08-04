@@ -32,8 +32,8 @@ const handleLikeEvent = async(id) => {
   }
 }
 
-const displayMeal = async ()=> {
-  const meals = await getMealList()
+const displayMeal = async (filter='a', option='Canadian')=> {
+  const meals = await getMealList(filter, option)
   const Container = document.querySelector('#meals')
   meals.forEach(meal => {
     const card = document.createElement('div')

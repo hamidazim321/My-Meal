@@ -14,8 +14,8 @@ body {
 
 #Navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-around;
   width: 100%;
   padding: 1% 5% 1% 5%;
   background-color: rgb(180, 128, 61);
@@ -25,7 +25,7 @@ body {
   padding: 0;
   display: flex;
   align-items: center;
-  width: 100%
+  width: 50%;
 }
 
 #logo {
@@ -44,8 +44,7 @@ body {
   display: flex;
   list-style: none;
   flex-wrap: wrap;
-  gap: 5%;
-  width: 100%;
+  gap: 20%;
   justify-content: center;
   font-size: 1.7vw;
   margin: 0;
@@ -57,6 +56,19 @@ body {
   color: black;
   font-weight: 600;
   font-size: 24px;
+}
+
+#filter {
+  font-weight: 600;
+  font-size: 24px;
+  background-color: transparent;
+  border: solid black;
+  outline: none;
+}
+
+optgroup {
+  font-size: 16px;
+  background-color: burlywood;
 }
 
 #meals {
@@ -223,7 +235,7 @@ body {
 @media screen and (min-width: 300px) and (max-width: 600px) {
   #Navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
     padding: 1% 5% 1% 5%;
@@ -234,11 +246,11 @@ body {
     padding: 0;
     display: flex;
     align-items: center;
-    width: 60%;
+    width: 100%;
   }
   
   #logo {
-    font-size: 24px;
+    font-size: 12px;
     color: silver;
     margin-right: 2%;
   }
@@ -266,6 +278,21 @@ body {
     font-weight: 600;
     font-size: 12px;
   }  
+
+  #filter {
+    font-weight: 600;
+    font-size: 12px;
+    background-color: transparent;
+    border: solid black;
+    outline: none;
+    width: 90px;
+  }
+  
+  optgroup {
+    font-size: 10px;
+    background-color: burlywood;
+  }
+  
 
   #meals {
     display: grid;
