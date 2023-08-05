@@ -1,5 +1,5 @@
 const getMyLikes = () => {
-  const likes = JSON.parse(localStorage.getItem('myLikes')) || []
+  const likes = JSON.parse(localStorage.getItem('myFavourites')) || []
   return likes
 }
 
@@ -9,7 +9,7 @@ const saveMyLikes = (id) => {
     id: id
   }
   likes.push(newLike)
-  localStorage.setItem('myLikes', JSON.stringify(likes))
+  localStorage.setItem('myFavourites', JSON.stringify(likes))
 }
 
 const highlightMyLikes = () => {

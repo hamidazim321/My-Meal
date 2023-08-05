@@ -27,13 +27,18 @@ const getLikes = async ()=> {
 const displayLikes = async ()=> {
   const likes = await getLikes()
   const cards = document.querySelectorAll('.meal-card')
-  cards.forEach(card => {
-    const addedLike = likes.find(like => like.item_id === card.id)
-    if (addedLike){
-      const likeCount = card.querySelector('.like-count')
-      likeCount.textContent = `${addedLike.likes} Likes`
-    }
-  })
+  try {
+    cards.forEach(card => {
+      const addedLike = likes.find(like => like.item_id === card.id)
+      if (addedLike){
+        const likeCount = card.querySelector('.like-count')
+        likeCount.textContent = `${addedLike.likes} Likes`
+      }
+    })
+  }
+  catch {
+    return
+  }
 }
 
 const updateLike = async (id)=> {
