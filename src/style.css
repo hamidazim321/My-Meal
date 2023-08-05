@@ -203,6 +203,12 @@ optgroup {
   gap: 2%;
 }
 
+#recipe a {
+  text-decoration: none;
+  color: red;
+  font-weight: 600;
+}
+
 #popup-responses {
   width: 100%;
   padding: 0 20%;
@@ -226,10 +232,25 @@ optgroup {
   width: 50%;
 }
 
+.form-input,
+.form-textArea {
+  border: solid;
+  background-color: transparent;
+  color: black;
+  padding: 5px;
+}
+
+.form-input::placeholder,
+.form-textArea::placeholder {
+  color: black;
+}
+
 .form-submit {
   width: fit-content;
   font: large;
   font-weight: 600;
+  background-color: burlywood;
+  padding: 5px;
 }
 
 @media screen and (min-width: 300px) and (max-width: 600px) {
@@ -407,7 +428,7 @@ optgroup {
   #popup-desc div {
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 5px;
+    gap: 0;
     width: 100%;
   }
 
@@ -446,9 +467,5 @@ optgroup {
     background-color: burlywood;
     padding: 5px;
   }
-  
-  
-  
 }
-
 
