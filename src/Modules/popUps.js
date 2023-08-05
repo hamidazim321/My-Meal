@@ -145,7 +145,7 @@ const updateCommentSection = async (id) => {
   const header = commentsSection.querySelector('.header h2')
   const newComment = document.createElement('p')
   const {comment, creation_date, username} = comments[comments.length-1]
-  newComment.textContent = `${creation_date} ${username}: ${comment}`
+  newComment.innerHTML = `<b>${creation_date} ${username}:</b> ${comment}`
   commentsSection.appendChild(newComment)
   header.textContent = `Comments (${comments.length})`
 }
